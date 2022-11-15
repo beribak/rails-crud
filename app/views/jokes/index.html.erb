@@ -1,0 +1,11 @@
+<h1>Hello from index</h1>
+<h2><%= link_to "Create a joke", new_joke_path %></h2>
+
+<% @jokes.each do |joke| %>
+    <div style="border: 1px solid red; padding: 15px; margin-bottom: 10px; width: 25vw;">
+        <h2><%= joke.content %></h2>
+        <h4><%= joke.rating %></h4>
+        <div><%= link_to "update joke", edit_joke_path(joke) %></div>
+        <%= link_to "delete joke", joke_path(joke), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+<% end %>
